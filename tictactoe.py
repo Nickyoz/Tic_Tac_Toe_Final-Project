@@ -2,7 +2,16 @@ import random
 import tkinter 
 sign = 0
 
-global board
+mainWindow= Tk()
+
+def play():
+    menu = Tk()
+    menu.geometry("250x250")
+    menu.title("Tic Tac Toe")
+    wpc = partial(withpc, menu)
+    wpl = partial(withplayer, menu)
+
+    global board
 board = [[" " for x in range(3)] for y in range(3)]
 
 def winner(b, l):
@@ -34,3 +43,5 @@ def gameboard_pl(game_board, l1, l2):
             button[i][j].grid(row=m, column=n)
     game_board.mainloop()
 
+    if __name__ == '__main__':
+    play()
